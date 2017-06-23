@@ -76,8 +76,9 @@ def trajectoryPlot(fig, ax, trace, f):
 def convergencePlot(ax, trace, f, dfd0):
     ax.plot(range(0, len(trace)), map(lambda x : f(x), trace), label=r'f(x,y)')
     ax.plot(range(0, len(trace)), map(lambda x : np.linalg.norm(dfd0(x)), trace), label=r'norm(\nabla f)')
-    ax.set_xlabel("Epoch")
+    ax.set_xlabel("log(Epoch)")
     ax.set_ylabel("log(Function Value)")
     ax.set_title("Convergence")
     ax.set_yscale("log")
+    ax.set_xscale("log")
     ax.legend()
